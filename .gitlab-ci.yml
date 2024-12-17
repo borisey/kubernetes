@@ -19,7 +19,6 @@ build:
   stage: build
   script:
     - echo 'Build success!'
-    -
 test:
   stage: test
   script:
