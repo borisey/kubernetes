@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eco-law-ingress
+spec:
+  rules:
+    - host: xn--80aebiaqmdf3abedlpl4hve.xn--p1ai # экологическоеправо.рф
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: eco-law-service
+                port:
+                  number: 80
