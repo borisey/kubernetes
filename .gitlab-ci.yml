@@ -18,13 +18,19 @@ stages:
 build:
   stage: build
   script:
-    - docker build -t your-image-name:latest .
-
-deploy:
-  stage: deploy
-  environment:
-    name: production
-    url: https://your-app-url.com
+    - echo 'Build success!'
+    -
+test:
+  stage: build
   script:
-    - kubectl apply -f k8s/deployment.yaml
-    - kubectl apply -f k8s/service.yaml
+    - echo 'Test success!'
+
+deploy_staging:
+  stage: build
+  script:
+    - echo 'Deploy staging  success!'
+
+deploy_production:
+  stage: build
+  script:
+    - echo 'Deploy production success!'
