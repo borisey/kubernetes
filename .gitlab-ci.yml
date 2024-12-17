@@ -21,16 +21,16 @@ build:
     - echo 'Build success!'
     -
 test:
-  stage: build
+  stage: test
   script:
     - echo 'Test success!'
 
 deploy_staging:
-  stage: build
+  stage: deploy_staging
   script:
     - echo 'Deploy staging  success!'
 
 deploy_production:
-  stage: build
+  stage: deploy_production
   script:
     - echo 'Deploy production success!'
