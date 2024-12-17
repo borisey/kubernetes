@@ -12,8 +12,8 @@ build_image:
     - docker:dind
   script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-    - docker build -t $CI_REGISTRY/borisey/k8s-eco-law/sample:v58 .
-    - docker push $CI_REGISTRY/borisey/k8s-eco-law/sample:v58
+    - docker build -t $CI_REGISTRY/borisey/kubernetes/sample:v58 .
+    - docker push $CI_REGISTRY/borisey/kubernetes/sample:v58
     - echo "Image built"
 
 deploy_project:
