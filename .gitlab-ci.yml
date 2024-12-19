@@ -1,5 +1,5 @@
 variables:
-  KUBE_CONTEXT: borisey/k8s-connection:k8s-connection
+  KUBE_CONTEXT: borisey/kubernetes-connection:kubernetes-connection
 
 stages:
   - build
