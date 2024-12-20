@@ -19,12 +19,22 @@ stages:
 #    - echo "Image built"
 
 test:
-  image: docker
-  stage: test
+  image: floor13/compose
   services:
     - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay
+    DOCKER_HOST: tcp://docker:2375
+  artifacts:
+    expire_in: 1 week
+    when: on_failure
+    paths:
+      - tests/_output/*
   script:
-    - docker exec -t $CONTAINER_NAME vendor/bin/phpunit --verbose tests
+    - docker-compose up -d
+    - docker-compose exec -T php composer install -vv
+    - docker-compose exec -T php ./yii db/load
+    - docker-compose exec -T php vendor/bin/codecept run
 
 deploy_staging:
   stage: deploy_staging
