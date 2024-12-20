@@ -26,9 +26,9 @@ test:
   script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
     - docker build -t $CI_REGISTRY/borisey/kubernetes/sample:v58 .
-    - docker run -p 8000:80 -d $CI_REGISTRY/borisey/kubernetes/sample:v58
+    - docker run -p 8000:80 -d $CI_REGISTRY/borisey/kubernetes/sample:v58 -name test_container
     - docker ps
-    - docker exec -it $CI_REGISTRY/borisey/kubernetes/sample:v58 sh
+    - docker exec -it test_container sh
 
 deploy_staging:
   stage: deploy_staging
