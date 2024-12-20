@@ -21,7 +21,7 @@ build:
 test:
   stage: test
   needs: build
-  steps:
+  script:
     - run: vendor/bin/phpunit --verbose tests
 
 deploy_staging:
