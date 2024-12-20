@@ -32,6 +32,7 @@ test:
     - ls
     - cd src
     - ls
+    - php -v
 
 deploy_staging:
   stage: deploy_staging
