@@ -26,9 +26,6 @@ test:
   script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
     - docker build -t $CI_REGISTRY/borisey/kubernetes/sample:v58 .
-    - docker-compose up -d
-    - docker-compose exec -T php composer install -vv
-    - docker-compose exec -T php ./yii db/load
     - docker-compose exec -T php vendor/bin/codecept run
 
 deploy_staging:
