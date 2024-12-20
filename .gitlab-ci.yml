@@ -30,6 +30,7 @@ test:
     - docker ps
     - docker exec -i test_container sh
     - ls
+    - cd src && vendor/bin/phpunit --verbose tests
 
 deploy_staging:
   stage: deploy_staging
