@@ -28,6 +28,7 @@ test:
     - docker build -t $CI_REGISTRY/borisey/kubernetes/sample:v58 .
     - docker run -p 8000:80 -d $CI_REGISTRY/borisey/kubernetes/sample:v58
     - docker ps
+    - docker exec -it $CI_REGISTRY/borisey/kubernetes/sample:v58 sh
 
 deploy_staging:
   stage: deploy_staging
