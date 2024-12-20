@@ -22,7 +22,7 @@ test:
   stage: test
   needs: build
   script:
-    - run: vendor/bin/phpunit --verbose tests
+    - vendor/bin/phpunit --verbose tests
 
 deploy_staging:
   stage: deploy_staging
