@@ -21,7 +21,6 @@ build:
 test:
   stage: test
   needs: build
-  runs-on: ubuntu-latest
   steps:
     - run: vendor/bin/phpunit --verbose tests
 
