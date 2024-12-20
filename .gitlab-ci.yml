@@ -31,8 +31,7 @@ test:
     - docker exec -i test_container sh
     - ls
     - cd src
-    - ls
-    - php -v
+    - docker-compose up
 
 deploy_staging:
   stage: deploy_staging
