@@ -3,9 +3,11 @@ variables:
 
 stages:
   - build
-  - deploy
+  - test
+  - deploy_staging
+  - deploy_production
 
-build_image:
+build:
   image: docker
   stage: build
   services:
@@ -16,8 +18,29 @@ build_image:
     - docker push $CI_REGISTRY/borisey/kubernetes/sample:v58
     - echo "Image built"
 
-deploy_project:
-  stage: deploy
+test:
+  stage: test
+  script:
+    - echo 'Test success!'
+
+deploy_staging:
+  stage: deploy_staging
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  script:
+    - kubectl config use-context $KUBE_CONTEXT
+    - kubectl get pods
+    - kubectl get nodes -o wide
+    - echo "Deployment LOGIN-APP to K8S"
+    - ls $CI_PROJECT_DIR/k8s
+    - kubectl apply -f $CI_PROJECT_DIR/k8s/.
+    - kubectl rollout restart deployments/eco-law-app
+    - kubectl get pods
+    - kubectl get svc
+
+deploy_production:
+  stage: deploy_production
   image:
     name: bitnami/kubectl:latest
     entrypoint: ['']
