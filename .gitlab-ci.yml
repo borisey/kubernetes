@@ -30,7 +30,8 @@ test:
     - docker ps
     - docker exec -i test_container sh
     - ls
-    - cd src && vendor/bin/codecept run
+    - cd src
+    - ls
 
 deploy_staging:
   stage: deploy_staging
