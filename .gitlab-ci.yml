@@ -22,16 +22,7 @@ test:
   image: floor13/compose
   services:
     - docker:dind
-  variables:
-    DOCKER_DRIVER: overlay
-    DOCKER_HOST: tcp://docker:2375
-  artifacts:
-    expire_in: 1 week
-    when: on_failure
-    paths:
-      - tests/_output/*
   script:
-    - cp docker-compose.dev.yml docker-compose.yml
     - docker-compose up -d
     - docker-compose exec -T php composer install -vv
     - docker-compose exec -T php ./yii db/load
