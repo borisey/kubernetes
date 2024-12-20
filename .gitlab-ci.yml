@@ -22,7 +22,8 @@ test:
   stage: test
   needs: build
   script:
-    - vendor/bin/phpunit --verbose tests
+    script:
+      - docker exec -t $CONTAINER_NAME vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
 
 deploy_staging:
   stage: deploy_staging
