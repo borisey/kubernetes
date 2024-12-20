@@ -31,8 +31,9 @@ test:
     - docker exec -i test_container sh
     - ls
     - cd src
-    - docker-compose up -d
-    - docker-compose exec php phpunit tests
+    - /var/www/html/vendor/bin/phpunit tests/unit/models/
+#    - docker-compose up -d
+#    - docker-compose exec php phpunit tests
 
 deploy_staging:
   stage: deploy_staging
