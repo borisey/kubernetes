@@ -20,8 +20,10 @@ build:
 
 test:
   stage: test
-  script:
-    - echo 'Test success!'
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+    - run: vendor/bin/phpunit --verbose tests
 
 deploy_staging:
   stage: deploy_staging
