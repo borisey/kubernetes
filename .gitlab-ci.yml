@@ -19,8 +19,10 @@ build:
     - echo "Image built"
 
 test:
+  image: docker
   stage: test
-  needs: build
+  services:
+    - docker:dind
   script:
     - docker exec -t $CONTAINER_NAME vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
 
