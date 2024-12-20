@@ -19,7 +19,8 @@ stages:
 #    - echo "Image built"
 
 test:
-  image: floor13/compose
+  image: docker
+  stage: test
   services:
     - docker:dind
   script:
