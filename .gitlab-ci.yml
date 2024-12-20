@@ -30,7 +30,7 @@ test:
     - docker ps
     - docker exec -i test_container sh
     - ls
-    - cd src && vendor/bin/phpunit --verbose tests
+    - cd src && vendor/bin/codecept run
 
 deploy_staging:
   stage: deploy_staging
