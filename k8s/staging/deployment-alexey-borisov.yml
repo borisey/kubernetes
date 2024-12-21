@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alexey-borisov-app
+  labels:
+    app: alexey-borisov-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: alexey-borisov-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 2
+  template:
+    metadata:
+      labels:
+        project: alexey-borisov-app
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: alexey-borisov-app
+          image: registry.gitlab.com/borisey/kubernetes/sample:v58
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: app-secret
+        - name: registry-key

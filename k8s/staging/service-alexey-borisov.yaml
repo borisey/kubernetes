@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: alexey-borisov-service
+  labels:
+    app: alexey-borisov-service
+spec:
+  ports:
+  - name: alexey-borisov-service
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    project: alexey-borisov-app
+  type: NodePort
+status:
+  loadBalancer: {}
