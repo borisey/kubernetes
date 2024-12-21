@@ -22,7 +22,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: alexey-borisov-app-production
-          image: registry.gitlab.com/borisey/kubernetes/sample:v58
+          image: registry.gitlab.com/borisey/kubernetes/sample:latest
           ports:
             - containerPort: 80
           imagePullPolicy: Always
