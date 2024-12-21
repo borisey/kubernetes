@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: alexey-borisov-ingress
+  name: alexey-borisov-ingress-production
 spec:
   rules:
     - host: xn--80acdkatfgh9abwig.xn--p1ai # алексейборисов.рф
@@ -11,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: alexey-borisov-service
+                name: alexey-borisov-service-production
                 port:
                   number: 80

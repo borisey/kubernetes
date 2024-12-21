@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: alexey-borisov-app
+  name: alexey-borisov-app-staging
   labels:
-    app: alexey-borisov-app
+    app: alexey-borisov-app-staging
 spec:
   replicas: 3
   selector:
     matchLabels:
-      project: alexey-borisov-app
+      project: alexey-borisov-app-staging
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,11 +17,11 @@ spec:
   template:
     metadata:
       labels:
-        project: alexey-borisov-app
+        project: alexey-borisov-app-staging
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: alexey-borisov-app
+        - name: alexey-borisov-app-staging
           image: registry.gitlab.com/borisey/kubernetes/sample:v58
           ports:
             - containerPort: 80
