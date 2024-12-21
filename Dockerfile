@@ -19,5 +19,5 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev
 
-EXPOSE 32222
+EXPOSE 30192
 CMD ["/var/www/html/yii", "serve", "0.0.0.0:80"]
