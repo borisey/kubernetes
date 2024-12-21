@@ -4,7 +4,7 @@ metadata:
   name: eco-law-ingress
 spec:
   rules:
-    - host: xn--80aebiaqmdf3abedlpl4hve.xn--p1ai # экологическоеправо.рф
+    - host: xn--80acdkatfgh9abwig.xn--p1ai # алексейборисов.рф
       http:
         paths:
           - path: /
