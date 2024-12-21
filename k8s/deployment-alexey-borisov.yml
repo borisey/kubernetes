@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eco-law-app
+  name: alexey-borisov-app
   labels:
-    app: eco-law-app
+    app: alexey-borisov-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      project: eco-law-app
+      project: alexey-borisov-app
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,11 +17,11 @@ spec:
   template:
     metadata:
       labels:
-        project: eco-law-app
+        project: alexey-borisov-app
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: eco-law-app
+        - name: alexey-borisov-app
           image: registry.gitlab.com/borisey/kubernetes/sample:v58
           ports:
             - containerPort: 80

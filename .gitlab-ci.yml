@@ -38,7 +38,7 @@ deploy_staging:
     - echo "Deployment LOGIN-APP to K8S"
     - ls $CI_PROJECT_DIR/k8s
     - kubectl apply -f $CI_PROJECT_DIR/k8s/.
-    - kubectl rollout restart deployments/eco-law-app
+    - kubectl rollout restart deployments/alexey-borisov-app
     - kubectl get pods
     - kubectl get svc
 
@@ -54,6 +54,6 @@ deploy_production:
     - echo "Deployment LOGIN-APP to K8S"
     - ls $CI_PROJECT_DIR/k8s
     - kubectl apply -f $CI_PROJECT_DIR/k8s/.
-    - kubectl rollout restart deployments/eco-law-app
+    - kubectl rollout restart deployments/alexey-borisov-app
     - kubectl get pods
     - kubectl get svc
