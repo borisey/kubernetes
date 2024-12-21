@@ -41,6 +41,8 @@ deploy_staging:
     - kubectl rollout restart deployments/alexey-borisov-app
     - kubectl get pods
     - kubectl get svc
+  only:
+    - develop
 
 deploy_production:
   stage: deploy_production
@@ -57,3 +59,5 @@ deploy_production:
     - kubectl rollout restart deployments/alexey-borisov-app
     - kubectl get pods
     - kubectl get svc
+  only:
+    - main
